@@ -80,7 +80,7 @@ function zip(keys, values, options) {
 
 const rxCRLF = /[\r\n]/
 const rxComment = /(\s*\/\/[^\n\r]*)/
-const rxLineIndentation = /^( *)([^$]*)/
+const rxLineIndentation = /^(\s*)([^$]*)/
 const rxPathAssignment = /\s*=\s*([^$]+)/
 const rxJustWhiteSpace = /^\s*$/
 
