@@ -1,6 +1,6 @@
 {
   "name": "compose-paths",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Define paths + routes without the repetition.",
   "author": "Conan Theobald",
   "license": "MIT",
