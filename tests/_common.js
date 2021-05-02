@@ -204,6 +204,8 @@ const PATHS_AND_ROUTES_ZIPPED = [
   ]
 ]
 
+const oneTabFor2Spaces = str => str.replace(/ {2}/g, '\t')
+
 module.exports = {
   PATHS,
   COMPOSED_PATHS,
@@ -213,5 +215,7 @@ module.exports = {
   COMPOSED_ROUTES,
   COMPOSED_ROUTES_ALIASES,
 
-  PATHS_AND_ROUTES_ZIPPED
+  PATHS_AND_ROUTES_ZIPPED,
+
+  oneTabFor2Spaces
 }
