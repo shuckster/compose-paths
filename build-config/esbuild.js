@@ -30,6 +30,7 @@ function buildComposePaths({ file, format, define }) {
       entryPoints: [paths.SRC],
       define: define,
       format: format,
+      ...(format === 'iife' && { globalName: 'composePaths' }),
       platform: 'node',
       target: ['es6'],
       minify: true,
