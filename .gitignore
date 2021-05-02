@@ -1,0 +1,6 @@
+_scratch
+.DS_Store
+node_modules
+pnpm-debug.log
+publish.sh
+*.acorn

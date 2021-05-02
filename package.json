@@ -1,0 +1,67 @@
+{
+  "name": "compose-paths",
+  "version": "1.0.0",
+  "description": "Define paths + routes without the repetition.",
+  "author": "Conan Theobald",
+  "license": "MIT",
+  "keywords": [
+    "join",
+    "url",
+    "paths",
+    "routes",
+    "concatenation"
+  ],
+  "main": "./dist/compose-paths.cjs.js",
+  "module": "dist/compose-paths.esm.js",
+  "exports": {
+    "default": "./dist/compose-paths.cjs.js",
+    "import": "./dist/compose-paths.esm.js",
+    "browser": "./dist/compose-paths.browser.js",
+    "require": "./dist/compose-paths.esm.js"
+  },
+  "files": [
+    "dist/**/*.js",
+    "dist/**/*.map",
+    "CHANGELOG.md",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "homepage": "https://shuckster.github.io/compose-paths/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/shuckster/compose-paths"
+  },
+  "bugs": {
+    "url": "https://github.com/shuckster/compose-paths/issues",
+    "email": "bugs+compose-paths@conans.co.uk"
+  },
+  "scripts": {
+    "build": "cross-env NODE_ENV=production npm run build:rollup",
+    "build:clean": "rimraf dist/; mkdir -p dist/",
+    "build:all": "pnpm run build:clean ; cross-env NODE_ENV=production pnpm run build",
+    "build:rollup": "concurrently \"pnpm run build:rollup:node\" \"pnpm run build:rollup:not-node\"",
+    "build:rollup:node": "rollup --config ./build-config/rollup.node.js",
+    "build:rollup:not-node": "rollup --config ./build-config/rollup.not-node.js",
+    "build:esbuild": "node ./build-config/esbuild.js"
+  },
+  "devDependencies": {
+    "@rollup/plugin-babel": "^5.3.0",
+    "@rollup/plugin-commonjs": "^18.0.0",
+    "@rollup/plugin-json": "^4.1.0",
+    "@rollup/plugin-node-resolve": "^11.2.1",
+    "@rollup/plugin-replace": "^2.4.2",
+    "concurrently": "^6.0.2",
+    "cross-env": "^7.0.3",
+    "esbuild": "^0.11.12",
+    "eslint": "^7.24.0",
+    "rimraf": "^3.0.2",
+    "rollup": "^2.45.2",
+    "rollup-plugin-cleanup": "^3.2.1",
+    "rollup-plugin-node-builtins": "^2.1.2",
+    "rollup-plugin-terser": "7.0.2",
+    "url-join": "^4.0.1"
+  }
+}

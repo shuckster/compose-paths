@@ -1,0 +1,7 @@
+/*
+ * compose-paths
+ * v1.0.0
+ * https://shuckster.github.io/compose-paths/
+ * License: MIT
+ */
+"use strict";function e(e){return e&&"object"==typeof e&&"default"in e?e:{default:e}}Object.defineProperty(exports,"__esModule",{value:!0});var n={composePaths:function(e){const n=(f=e,[f].flat().reduce(((e,n)=>[...e,...n.split(r)]),[]).filter(u).map((e=>e.replace(c,"")))).map(s),i=n.reduce(((e,{indent:n})=>Math.min(e,n)),1/0),a=(d=n.map((({indent:e,content:n})=>({indent:e-i,content:n}))),d.map(((e,n)=>{const{content:t,indent:r}=e,c=t.match(o);return c?{index:n,indent:r,content:t.slice(0,t.length-c[0].length),name:c[1]}:{index:n,indent:r,content:t}}))),l=function(e){const n=[],r=[];let c=-1,i=-1;return e.forEach((({indent:e,content:o})=>{if(e<=c){let t=1+(c-e)/i;for(;t--;)n.pop()}else i<=0&&(i=e);n.push(o),r.push(t(...n)),c=e})),r}(a);var d;var f;a.forEach((({name:e,index:n})=>{if(!e)return l;const t=l[n];Object.defineProperty(l,e,{value:t,enumerable:!1})}));const p=a.filter((e=>!!e?.name)).map((e=>e.name));return Object.defineProperty(l,"aliases",{value:p,enumerable:!1})},zip:function(e,n,t){const{aliases:r=[],ignoreAliases:c=!1}=t||{};return(r.length&&!c?r:e.aliases).reduce(((t,i)=>c&&r.includes(i)?t:[...t,[e[i],n[i]]]),[])}};const t=e(require("path")).default.join;const r=/[\r\n]/,c=/(\s*\/\/[^\n\r]*)/,i=/^( *)([^$]*)/,o=/\s*=\s*([^$]+)/,a=/^\s*$/;function s(e){const n=[e,"",e],t=e.match(i)??n;return{indent:t[1].length,content:t[2]}}function u(e){return!a.test(e)}exports.default=n;
