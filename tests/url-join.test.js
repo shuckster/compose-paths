@@ -9,7 +9,7 @@ const {
   oneTabFor2Spaces
 } = require('./_common')
 
-describe('composePaths :: path.join', () => {
+describe('composePaths :: url-join', () => {
   let composePaths
   let zip
 
