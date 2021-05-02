@@ -14,6 +14,7 @@ function main() {
       buildComposePaths({
         ...output,
         define: {
+          'process.env.RUNNING_JEST': '"false"',
           'process.env.BUILD_FOR_NODE': `"${
             output.format === 'cjs' ? 'true' : 'false'
           }"`

@@ -40,6 +40,7 @@ module.exports = {
     json(),
     replace({
       preventAssignment: true,
+      'process.env.RUNNING_JEST': '"false"',
       'process.env.BUILD_FOR_NODE': `"true"`
     }),
     nodeResolve(),
