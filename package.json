@@ -17,7 +17,7 @@
     "default": "./dist/compose-paths.cjs.js",
     "import": "./dist/compose-paths.esm.js",
     "browser": "./dist/compose-paths.browser.js",
-    "require": "./dist/compose-paths.esm.js"
+    "require": "./dist/compose-paths.cjs.js"
   },
   "files": [
     "dist/**/*.js",
