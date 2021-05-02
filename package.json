@@ -38,6 +38,7 @@
     "email": "bugs+compose-paths@conans.co.uk"
   },
   "scripts": {
+    "test": "jest",
     "build": "cross-env NODE_ENV=production npm run build:esbuild",
     "build:clean": "rimraf dist/; mkdir -p dist/",
     "build:all": "pnpm run build:clean ; cross-env NODE_ENV=production pnpm run build",
@@ -56,6 +57,8 @@
     "cross-env": "^7.0.3",
     "esbuild": "^0.11.12",
     "eslint": "^7.24.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "jest": "^26.6.3",
     "rimraf": "^3.0.2",
     "rollup": "^2.45.2",
     "rollup-plugin-cleanup": "^3.2.1",

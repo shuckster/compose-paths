@@ -51,6 +51,10 @@ function composePaths(pathChart) {
   })
 }
 
+if (process.env.RUNNING_JEST === 'true') {
+  composePaths.__join = join
+}
+
 //
 // ZIP
 //
