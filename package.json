@@ -28,7 +28,7 @@
   "engines": {
     "node": ">=10"
   },
-  "homepage": "https://shuckster.github.io/compose-paths/",
+  "homepage": "https://github.com/shuckster/compose-paths",
   "repository": {
     "type": "git",
     "url": "https://github.com/shuckster/compose-paths"
