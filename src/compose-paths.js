@@ -54,7 +54,7 @@ function composePaths(pathChart) {
 //
 // ZIP
 //
-// (Map one set of composed-paths onto another; see _mock-server/index.js)
+// (Map one set of composed-paths onto another)
 //
 
 function zip(keys, values, options) {
