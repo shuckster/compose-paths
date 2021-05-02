@@ -68,6 +68,7 @@ const paths = composePaths(`
 
 const staticRoutes = zip(routes, paths)
 
+// Then, for example:
 staticRoutes.forEach(([route, path]) => {
   app.get(route, sendFile(path))
 })
