@@ -89,16 +89,19 @@ function fillOutPaths(withIndentInfo) {
   const allComposedPaths = []
 
   let previousIndent = -1
-  let indentationSize = -1
+  let tabSize = -1
 
   withIndentInfo.forEach(({ indent, content }) => {
-    if (indent <= previousIndent) {
-      let count = 1 + (previousIndent - indent) / indentationSize
+    // The first indent encountered gives the "tab size"
+    if (tabSize <= 0) {
+      tabSize = indent
+    }
+    // Encountered a smaller indent than the previous? Pop the stack
+    else if (indent <= previousIndent) {
+      let count = 1 + (previousIndent - indent) / tabSize
       while (count--) {
         pathStackWithRootFirst.pop()
       }
-    } else if (indentationSize <= 0) {
-      indentationSize = indent
     }
 
     pathStackWithRootFirst.push(content)
