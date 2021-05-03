@@ -6,6 +6,11 @@
       alt="MIT license"
       src="https://img.shields.io/npm/l/compose-paths?style=plastic"
     /></a>
+  <a href="https://bundlephobia.com/result?p=compose-paths">
+    <img
+      alt="npm bundle size"
+      src="https://img.shields.io/bundlephobia/minzip/compose-paths?style=plastic"
+    /></a>
   <a href="https://www.npmjs.com/package/compose-paths">
     <img
       alt="Version"
