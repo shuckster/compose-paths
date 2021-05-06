@@ -1,6 +1,6 @@
 /*
  * compose-paths
- * v1.0.6
+ * v1.0.7
  * https://github.com/shuckster/compose-paths
  * License: MIT
  */
