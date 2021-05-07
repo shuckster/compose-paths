@@ -1,4 +1,3 @@
-const path = require('path')
 const { composePaths } = require('../src/compose-paths')
 
 const paths = composePaths(`
