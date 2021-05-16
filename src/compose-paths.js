@@ -21,7 +21,6 @@ function composePaths(pathChart) {
     (min, { indent }) => Math.min(min, indent),
     Infinity
   )
-
   const clampedIndents = indentsAndContents.map(({ indent, content }) => ({
     indent: indent - shallowestIndent,
     content
