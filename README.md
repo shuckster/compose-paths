@@ -51,8 +51,6 @@ paths.PUBLIC
 
 ### `Path` &rarr; `Route` (via aliases)
 
-You can also zip-up two of these:
-
 ```js
 const { composePaths, zip } = require('compose-paths')
 
