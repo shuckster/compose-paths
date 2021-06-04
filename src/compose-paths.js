@@ -24,12 +24,10 @@ function composePaths(pathChart) {
   const arrayOfAllComposedPaths = fillOutPaths(pathsMatchedToAliases)
 
   // build output
+  const aliases = pathsMatchedToAliases.map(path => path?.name).filter(Boolean)
   const output = arrayOfAllComposedPaths
-  pathsMatchedToAliases.forEach(AssignAlias(output))
 
-  const aliases = pathsMatchedToAliases
-    .filter(prop => !!prop?.name)
-    .map(prop => prop.name)
+  pathsMatchedToAliases.forEach(AssignAlias(output))
 
   return Object.defineProperty(output, ALIASES_PROP, {
     value: aliases,
