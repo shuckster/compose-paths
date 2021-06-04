@@ -15,36 +15,23 @@ const join =
 const ALIASES_PROP = 'aliases'
 
 function composePaths(pathChart) {
+  // prep
   const lines = sanitizedLines(pathChart)
   const indentsAndContents = lines.map(splitByIndent)
-  const shallowestIndent = indentsAndContents.reduce(
-    (min, { indent }) => Math.min(min, indent),
-    Infinity
-  )
-  const clampedIndents = indentsAndContents.map(({ indent, content }) => ({
-    indent: indent - shallowestIndent,
-    content
-  }))
+  const shallowestIndent = indentsAndContents.reduce(minIndent, Infinity)
+  const clampedIndents = indentsAndContents.map(ClampIndent(shallowestIndent))
   const pathsMatchedToAliases = decomposeAliases(clampedIndents)
   const arrayOfAllComposedPaths = fillOutPaths(pathsMatchedToAliases)
 
-  pathsMatchedToAliases.forEach(({ name, index }) => {
-    if (!name) {
-      return arrayOfAllComposedPaths
-    }
-
-    const fullPath = arrayOfAllComposedPaths[index]
-    Object.defineProperty(arrayOfAllComposedPaths, name, {
-      value: fullPath,
-      enumerable: false
-    })
-  })
+  // build output
+  const output = arrayOfAllComposedPaths
+  pathsMatchedToAliases.forEach(AssignAlias(output))
 
   const aliases = pathsMatchedToAliases
     .filter(prop => !!prop?.name)
     .map(prop => prop.name)
 
-  return Object.defineProperty(arrayOfAllComposedPaths, ALIASES_PROP, {
+  return Object.defineProperty(output, ALIASES_PROP, {
     value: aliases,
     enumerable: false
   })
@@ -82,6 +69,31 @@ const rxComment = /(\s*\/\/[^\n\r]*)/
 const rxLineIndentation = /^(\s*)([^$]*)/
 const rxPathAssignment = /\s*=\s*([^$]+)/
 const rxJustWhiteSpace = /^\s*$/
+
+function minIndent(min, { indent }) {
+  return Math.min(min, indent)
+}
+
+function ClampIndent(shallowestIndent) {
+  return ({ indent, content }) => ({
+    indent: indent - shallowestIndent,
+    content
+  })
+}
+
+function AssignAlias(arrayOfAllComposedPaths) {
+  return ({ name, index }) => {
+    if (!name) {
+      return arrayOfAllComposedPaths
+    }
+
+    const fullPath = arrayOfAllComposedPaths[index]
+    Object.defineProperty(arrayOfAllComposedPaths, name, {
+      value: fullPath,
+      enumerable: false
+    })
+  }
+}
 
 function fillOutPaths(withIndentInfo) {
   const pathStackWithRootFirst = []
