@@ -39,7 +39,7 @@
   },
   "scripts": {
     "test": "jest",
-    "build": "cross-env NODE_ENV=production npm run build:esbuild",
+    "build": "cross-env NODE_ENV=production pnpm run build:esbuild",
     "build:clean": "rimraf dist/; mkdir -p dist/",
     "build:all": "pnpm run build:clean ; cross-env NODE_ENV=production pnpm run build",
     "build:rollup": "concurrently \"pnpm run build:rollup:node\" \"pnpm run build:rollup:not-node\"",
