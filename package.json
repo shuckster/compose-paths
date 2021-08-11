@@ -12,15 +12,16 @@
     "concatenation"
   ],
   "main": "./dist/compose-paths.cjs.js",
-  "module": "dist/compose-paths.esm.js",
+  "module": "index.mjs",
   "exports": {
+    "import": "./index.mjs",
     "default": "./dist/compose-paths.cjs.js",
-    "import": "./dist/compose-paths.esm.js",
-    "browser": "./dist/compose-paths.browser.js",
-    "require": "./dist/compose-paths.cjs.js"
+    "require": "./dist/compose-paths.cjs.js",
+    "browser": "./dist/compose-paths.browser.js"
   },
   "files": [
-    "dist/**/*.js",
+    "dist/*",
+    "index.mjs",
     "CHANGELOG.md",
     "README.md",
     "LICENSE"

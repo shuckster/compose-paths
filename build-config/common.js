@@ -8,7 +8,7 @@ const paths = composePaths(`
       /compose-paths.js             = SRC
 
     /dist
-      /compose-paths.esm.js         = DIST_ESM
+      /compose-paths.esm.mjs        = DIST_ESM
       /compose-paths.cjs.js         = DIST_CJS
       /compose-paths.browser.js     = DIST_IIFE
 
