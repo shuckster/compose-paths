@@ -6,6 +6,7 @@ const fs = require('fs')
 const esbuild = require('esbuild')
 const pkg = require('../package.json')
 
+const { match, when, otherwise } = require('match-iz')
 const { paths, banner, outputs } = require('./common')
 
 function main() {
@@ -29,10 +30,12 @@ function buildComposePaths({ file, format, define }) {
   return esbuild
     .build({
       entryPoints: [paths.SRC],
-      define: define,
-      format: format,
-      ...(format === 'iife' && { globalName: 'composePaths' }),
-      platform: 'node',
+      define,
+      format,
+      ...match(format)(
+        when('iife')({ platform: 'browser', globalName: 'composePaths' }),
+        otherwise({ platform: 'node' })
+      ),
       target: ['es6'],
       minify: true,
       bundle: true,
