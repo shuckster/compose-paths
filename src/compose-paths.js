@@ -51,10 +51,10 @@ function zip(keys, values, options) {
     aliases.length && !ignoreAliases ? aliases : keys[ALIASES_PROP]
 
   return useAliases.reduce((acc, alias) => {
-    if (ignoreAliases && aliases.includes(alias)) {
-      return acc
+    if (!(ignoreAliases && aliases.includes(alias))) {
+      acc.push([keys[alias], values[alias]])
     }
-    return [...acc, [keys[alias], values[alias]]]
+    return acc
   }, [])
 }
 
