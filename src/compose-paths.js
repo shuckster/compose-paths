@@ -125,16 +125,14 @@ function decomposeAliases(linesIndentMeta) {
   return linesIndentMeta.map((lineMeta, index) => {
     const { content, indent } = lineMeta
     const match = content.match(rxPathAssignment)
-    if (!match) {
-      return { index, indent, content }
-    }
-
-    return {
-      index,
-      indent,
-      content: content.slice(0, content.length - match[0].length),
-      name: match[1]
-    }
+    return !match
+      ? { index, indent, content }
+      : {
+          index,
+          indent,
+          content: content.slice(0, content.length - match[0].length),
+          name: match[1]
+        }
   })
 }
 
