@@ -40,6 +40,7 @@
   },
   "scripts": {
     "test": "jest",
+    "lint": "pnpx eslint src/*.js tests/*.js",
     "build": "cross-env NODE_ENV=production pnpm run build:esbuild",
     "build:clean": "rimraf dist/; mkdir -p dist/",
     "build:all": "pnpm run build:clean ; cross-env NODE_ENV=production pnpm run build",
