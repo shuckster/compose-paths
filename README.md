@@ -1,4 +1,4 @@
-# composePaths
+# compose-paths
 
 <p>
   <a href="https://github.com/shuckster/compose-paths/blob/master/LICENSE">
