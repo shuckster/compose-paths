@@ -15,9 +15,9 @@
   "module": "index.mjs",
   "exports": {
     "import": "./index.mjs",
-    "default": "./dist/compose-paths.cjs.js",
     "require": "./dist/compose-paths.cjs.js",
-    "browser": "./dist/compose-paths.browser.js"
+    "browser": "./dist/compose-paths.browser.js",
+    "default": "./dist/compose-paths.cjs.js"
   },
   "files": [
     "dist/*",
@@ -55,7 +55,7 @@
     "@rollup/plugin-json": "^4.1.0",
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-replace": "^3.0.1",
-    "concurrently": "^6.5.1",
+    "concurrently": "^7.0.0",
     "cross-env": "^7.0.3",
     "esbuild": "^0.14.11",
     "eslint": "^8.6.0",
