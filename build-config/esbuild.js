@@ -37,7 +37,7 @@ function buildComposePaths({ file, format, define }) {
     ),
     target: ['es6'],
     minify: true,
-    bundle: true,
+    bundle: format !== 'cjs',
     write: false
   }
   return esbuild
