@@ -1,6 +1,6 @@
-# compose-paths
+<h1 align="center"><code>compose-paths</code> 🛣</h1>
 
-<p>
+<p align="center">
   <a href="https://github.com/shuckster/compose-paths/blob/master/LICENSE">
     <img
       alt="MIT license"
@@ -21,6 +21,8 @@
 ```sh
 $ pnpm i compose-paths
 ```
+
+`compose-paths` looks at the indentation-level of its input as the cue to concatenate lines together. Either `tabs` or `spaces` should be fine, so long as you're consistent.
 
 ## Usage
 
@@ -104,8 +106,6 @@ pathFromRoute.aliases.forEach(route => {
 ```
 
 That's it!
-
-Behind the scenes `compose-paths` looks at the indentation-level of its input as the cue to concatenate lines together. Either `tabs` or `spaces` should be fine, so long as you're consistent.
 
 # Credits
 
