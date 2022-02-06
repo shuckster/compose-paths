@@ -12,6 +12,7 @@
     "routes",
     "concatenation"
   ],
+  "types": "index.d.ts",
   "main": "./dist/compose-paths.cjs.js",
   "module": "dist/esm/compose-paths.esm.js",
   "exports": {

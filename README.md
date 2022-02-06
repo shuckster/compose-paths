@@ -49,6 +49,9 @@ paths.TEMPLATES
 
 paths.PUBLIC
 // "/dir/name/public"
+
+paths.aliases
+// ["TEMPLATES", "PAGES", "PUBLIC", "IMAGES"]
 ```
 
 ### `Path` &rarr; `Route` (via aliases)
