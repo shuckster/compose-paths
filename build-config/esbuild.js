@@ -4,10 +4,12 @@
 
 const fs = require('fs')
 const esbuild = require('esbuild')
+const { moduleTypes, optionsFrom } = require('./common')
+
 const pkg = require('../package.json')
 
-const { match, when, otherwise } = require('match-iz')
-const { paths, banner, outputs } = require('./common')
+const { paths, outputs, addBanner, globalName } = optionsFrom(pkg)
+const { match, when, otherwise, defined } = require('match-iz')
 const { pipe } = require('../src/fp')
 
 const main = () =>
@@ -26,13 +28,16 @@ const buildOutput = output =>
     }
   })
 
-function buildComposePaths({ file, format, define }) {
+function buildComposePaths({ file, format, module, define }) {
   const buildOptions = {
     entryPoints: [paths.SRC],
     define,
     format,
     ...match(format)(
-      when('iife')({ platform: 'browser', globalName: 'composePaths' }),
+      when('iife')({
+        platform: 'browser',
+        globalName: pkg.browserGlobalName ?? globalName
+      }),
       otherwise({ platform: 'node' })
     ),
     target: ['es6'],
@@ -44,8 +49,22 @@ function buildComposePaths({ file, format, define }) {
     .build(buildOptions)
     .then(getConcatenatedEsbuildContent)
     .then($ => new TextDecoder().decode($))
-    .then(text => banner(pkg, text))
+    .then(addBanner)
     .then(writeTextFile(file))
+    .then(writePackageJson({ module, format }))
+}
+
+function writePackageJson({ module, format }) {
+  return () =>
+    match({ module, format })(
+      when({ module: defined, format: Object.keys(moduleTypes) })(() =>
+        writeTextFile(module)(makePackageJsonForType(format))
+      )
+    )
+}
+
+function makePackageJsonForType(type = 'esm') {
+  return `{ "type": "${moduleTypes[type]}" }\n`
 }
 
 const buildForNode = format => (format === 'cjs' ? 'true' : 'false')

@@ -1,5 +1,6 @@
 {
   "name": "compose-paths",
+  "browserGlobalName": "composePaths",
   "version": "1.1.3",
   "description": "Define paths + routes without the repetition.",
   "author": "Conan Theobald",
@@ -12,15 +13,16 @@
     "concatenation"
   ],
   "main": "./dist/compose-paths.cjs.js",
-  "module": "index.mjs",
+  "module": "dist/esm/compose-paths.esm.js",
   "exports": {
-    "import": "./index.mjs",
-    "require": "./dist/compose-paths.cjs.js",
-    "browser": "./dist/compose-paths.browser.js",
-    "default": "./dist/compose-paths.cjs.js"
+    "import": "./dist/esm/compose-paths.esm.js",
+    "require": "./dist/cjs/compose-paths.cjs.js",
+    "browser": "./dist/browser/compose-paths.browser.js",
+    "default": "./dist/cjs/compose-paths.cjs.js"
   },
   "files": [
-    "dist/*",
+    "dist/**/*.js",
+    "dist/**/package.json",
     "index.mjs",
     "CHANGELOG.md",
     "README.md",
@@ -42,7 +44,7 @@
     "test": "jest",
     "lint": "pnpx eslint src/*.js tests/*.js",
     "build": "cross-env NODE_ENV=production pnpm run build:esbuild",
-    "build:clean": "rimraf dist/; mkdir -p dist/",
+    "build:clean": "rimraf dist/; mkdir -p dist/{esm,cjs,browser}",
     "build:all": "pnpm run build:clean ; cross-env NODE_ENV=production pnpm run build",
     "build:esbuild": "node ./build-config/esbuild.js"
   },
