@@ -14,9 +14,9 @@
   ],
   "types": "index.d.ts",
   "main": "./dist/compose-paths.cjs.js",
-  "module": "dist/esm/compose-paths.esm.js",
+  "module": "index.mjs",
   "exports": {
-    "import": "./dist/esm/compose-paths.esm.js",
+    "import": "./index.mjs",
     "require": "./dist/cjs/compose-paths.cjs.js",
     "browser": "./dist/browser/compose-paths.browser.js",
     "default": "./dist/cjs/compose-paths.cjs.js"
@@ -24,6 +24,8 @@
   "files": [
     "dist/**/*.js",
     "dist/**/package.json",
+    "index.d.ts",
+    "index.mjs",
     "CHANGELOG.md",
     "README.md",
     "LICENSE"
