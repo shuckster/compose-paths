@@ -1,7 +1,7 @@
 {
   "name": "compose-paths",
   "browserGlobalName": "composePaths",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "Define paths + routes without the repetition.",
   "author": "Conan Theobald",
   "license": "MIT",
