@@ -9,7 +9,7 @@ const { moduleTypes, optionsFrom } = require('./common')
 const pkg = require('../package.json')
 
 const { paths, outputs, addBanner, globalName } = optionsFrom(pkg)
-const { match, when, otherwise, defined } = require('match-iz')
+const { match, when, otherwise, defined, anyOf } = require('match-iz')
 const { pipe } = require('../src/fp')
 
 const main = () =>
@@ -57,7 +57,7 @@ function buildComposePaths({ file, format, module, define }) {
 function writePackageJson({ module, format }) {
   return () =>
     match({ module, format })(
-      when({ module: defined, format: Object.keys(moduleTypes) })(() =>
+      when({ module: defined, format: anyOf(Object.keys(moduleTypes)) })(() =>
         writeTextFile(module)(makePackageJsonForType(format))
       )
     )

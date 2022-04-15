@@ -51,15 +51,15 @@
     "build:esbuild": "node ./build-config/esbuild.js"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
+    "concurrently": "^7.1.0",
     "cross-env": "^7.0.3",
-    "esbuild": "^0.14.19",
-    "eslint": "^8.8.0",
-    "eslint-plugin-jest": "^26.1.0",
-    "jest": "^27.5.0",
-    "match-iz": "^2.0.4",
+    "esbuild": "^0.14.36",
+    "eslint": "^8.13.0",
+    "eslint-plugin-jest": "^26.1.4",
+    "jest": "^27.5.1",
+    "match-iz": "^3.3.1",
     "rimraf": "^3.0.2",
-    "typescript": "^4.5.5",
+    "typescript": "^4.6.3",
     "url-join": "^4.0.1"
   }
 }
