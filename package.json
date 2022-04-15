@@ -18,7 +18,6 @@
   "exports": {
     "import": "./index.mjs",
     "require": "./dist/cjs/compose-paths.cjs.js",
-    "browser": "./dist/browser/compose-paths.browser.js",
     "default": "./dist/cjs/compose-paths.cjs.js"
   },
   "files": [
