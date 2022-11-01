@@ -18,10 +18,6 @@
     /></a>
 </p>
 
-```sh
-$ pnpm i compose-paths
-```
-
 `compose-paths` looks at the indentation-level of its input as the cue to concatenate lines together. Either `tabs` or `spaces` should be fine, so long as you're consistent.
 
 ## Usage
