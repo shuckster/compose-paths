@@ -18,15 +18,7 @@
     /></a>
 </p>
 
-```sh
-$ pnpm i compose-paths
-```
-
-`compose-paths` looks at the indentation-level of its input as the cue to concatenate lines together. Either `tabs` or `spaces` should be fine, so long as you're consistent.
-
-## Usage
-
-### `Path` &rarr; `Alias`
+Quickly throw together a few local paths and have them assigned to aliases or routes.
 
 ```js
 const { composePaths } = require('compose-paths')
@@ -54,7 +46,11 @@ paths.aliases
 // ["TEMPLATES", "PAGES", "PUBLIC", "IMAGES"]
 ```
 
-### `Path` &rarr; `Route` (via aliases)
+`compose-paths` looks at the indentation-level of its input as the cue to concatenate lines together. Either `tabs` or `spaces` should be fine, so long as you're consistent.
+
+## More examples
+
+### `Path` &rarr; `Route` (via aliases and `zip`)
 
 ```js
 const { composePaths, zip } = require('compose-paths')
@@ -76,7 +72,6 @@ const paths = composePaths(`
 
 const staticRoutes = zip(routes, paths)
 
-// Then, for example:
 staticRoutes.forEach(([route, path]) => {
   app.get(route, sendFile(path))
 })
